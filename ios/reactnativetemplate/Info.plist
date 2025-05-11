@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
-    <true/>
+	<true/>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,16 +51,11 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Inter-Black.ttf</string>
-		<string>Inter-Bold.ttf</string>
-		<string>Inter-ExtraBold.ttf</string>
-		<string>Inter-ExtraLight.ttf</string>
-		<string>Inter-Light.ttf</string>
-		<string>Inter-Medium.ttf</string>
-		<string>Inter-Regular.ttf</string>
-		<string>Inter-SemiBold.ttf</string>
-		<string>Inter-Thin.ttf</string>
+		<string>QuincyCF-Regular.otf</string>
+		<string>DMSans-Medium.ttf</string>
+		<string>DMSans-Regular.ttf</string>
+		<string>DMSans-SemiBold.ttf</string>
+		<string>DMSans.ttf</string>
 	</array>
-	<key>CADisableMinimumFrameDurationOnPhone</key><true/>
 </dict>
 </plist>

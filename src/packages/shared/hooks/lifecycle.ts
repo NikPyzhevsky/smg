@@ -1,18 +1,17 @@
-import { useEffect, useLayoutEffect, useRef, type EffectCallback } from 'react';
+import { useEffect, useLayoutEffect, useRef, type EffectCallback, DependencyList } from 'react';
 
 export const useMount = (effect: EffectCallback) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(effect, []);
 };
 
 export const useLayoutMount = (effect: EffectCallback) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useLayoutEffect(effect, []);
 };
 
 export const useUnmount = (effect: () => void) => {
   const effectRef = useRef(effect);
 
+  // eslint-disable-next-line react-compiler/react-compiler
   effectRef.current = effect;
 
   useMount(() => {
@@ -30,4 +29,18 @@ export const useIsMountedRef = () => {
   });
 
   return isMountedRef;
+};
+
+export const useDidUpdate = (callback: () => void, deps: DependencyList): void => {
+  const isMount = useRef(false);
+
+  useEffect(() => {
+    if (isMount.current) {
+      return callback();
+    }
+
+    isMount.current = true;
+
+    return undefined;
+  }, deps);
 };

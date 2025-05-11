@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { type FC } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { Text } from '@/packages/shared/components';
+import { Text, Button } from '@/packages/shared/components/Elements';
 import { useTranslation } from '@/packages/shared/hooks/translation';
 
 import { MainNavigationProps } from '@/app/models/navigation/main';
@@ -12,7 +12,7 @@ import { MAIN_ROUTE } from '@/app/routes/routes';
 const stylesheet = createStyleSheet((theme, runtime) => ({
   button: {
     alignItems: 'center',
-    backgroundColor: theme.shared.button.primary.background,
+    backgroundColor: theme.shared.buttons.main.primary.background,
     borderRadius: 15,
     marginTop: 10,
     padding: 15,
@@ -23,7 +23,6 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
     textAlign: 'center',
   },
   contentContainer: {
-    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
   },
@@ -40,26 +39,21 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
 
 const FirstScreen: FC = () => {
   const { t } = useTranslation();
-  const { t: tExample } = useTranslation('example');
 
   const { styles } = useStyles(stylesheet);
   const navigation = useNavigation<MainNavigationProps<typeof MAIN_ROUTE.FIRST_SCREEN>>();
 
   return (
     <View style={styles.root}>
-      <Text fontSize={18} fontWeight="700" style={styles.title}>
-        {t('firstScreen.title')}
-      </Text>
+      <Text style={styles.title}>{t('firstScreen.title')}</Text>
       <View style={styles.contentContainer}>
-        <Text fontSize={14} style={styles.title}>
-          {tExample('hint')}
-        </Text>
-        <TouchableOpacity
-          style={styles.button}
+        <Text style={styles.title}>{t('firstScreen.text')}</Text>
+        <Button.Primary
+          size="l"
+          title={t('firstScreen.button')}
+          variant="destructive"
           onPress={() => navigation.navigate(MAIN_ROUTE.SECOND_SCREEN)}
-        >
-          <Text style={styles.buttonText}>{t('firstScreen.button')}</Text>
-        </TouchableOpacity>
+        />
       </View>
     </View>
   );

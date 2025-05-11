@@ -5,13 +5,13 @@ import { initReactI18next } from 'react-i18next';
 import sharedEnLocalization from '@/packages/shared/localization/en';
 import LanguageService from '@/packages/shared/services/language';
 
-import exampleEnLocalization from '@/packages/example/localization/en';
+import authEnLocalization from '@/packages/auth/localization/en';
 
 import en from './lang/en';
 
 export const resources = {
   en: {
-    example: exampleEnLocalization,
+    auth: authEnLocalization,
     shared: sharedEnLocalization,
     translation: en,
   },

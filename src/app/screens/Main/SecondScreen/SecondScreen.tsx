@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { type FC } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { createStyleSheet, useStyles } from 'react-native-unistyles';
 
-import { Text } from '@/packages/shared/components';
+import { Button, Text } from '@/packages/shared/components/Elements';
 import { useTranslation } from '@/packages/shared/hooks/translation';
 
 import { type MainNavigationProps } from '@/app/models/navigation/main';
@@ -12,7 +12,7 @@ import { MAIN_ROUTE } from '@/app/routes/routes';
 const stylesheet = createStyleSheet((theme, runtime) => ({
   button: {
     alignItems: 'center',
-    backgroundColor: theme.shared.button.primary.background,
+    backgroundColor: theme.shared.buttons.main.primary.background,
     borderRadius: 15,
     marginTop: 10,
     padding: 15,
@@ -44,13 +44,13 @@ const SecondScreen: FC = () => {
 
   return (
     <View style={styles.root}>
-      <Text fontSize={18} fontWeight="700" style={styles.title}>
-        {t('secondScreen.title')}
-      </Text>
+      <Text style={styles.title}>{t('secondScreen.title')}</Text>
       <View style={styles.contentContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <Text style={styles.buttonText}>{t('secondScreen.button')}</Text>
-        </TouchableOpacity>
+        <Button.Primary
+          title={t('secondScreen.button')}
+          variant="destructive"
+          onPress={navigation.goBack}
+        />
       </View>
     </View>
   );

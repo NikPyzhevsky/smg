@@ -48,6 +48,7 @@ module.exports = {
     },
   },
   rules: {
+    'react/require-default-props': 'off',
     'react-compiler/react-compiler': 'error',
     'react/function-component-definition': [
       'error',
