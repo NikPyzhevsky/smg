@@ -1,0 +1,29 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # release:
+  #   runs-on: ubuntu-latest
+
+  #   permissions:
+  #     contents: write
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "18.17.1"
+  #     - name: Install dependencies
+  #       run: npm install -g yarn && yarn --network-timeout 100000 --frozen-lockfile
+  #     - name: Release
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       run: npx semantic-release

@@ -1,0 +1,47 @@
+{
+  "branches":[
+    "master",
+    {
+      "name": "dev-([0-9]+)-([0-9]+)-([0-9]+)",
+      "prerelease": true
+    }
+  ],
+  "plugins": [
+    [ 
+      "@semantic-release/commit-analyzer",
+      {
+        "releaseRules":[
+          {"type": "breaking", "release": "major"},
+          {"type": "feat", "release": "minor"},
+          {"type": "fix", "release": "patch"},
+          {"type": "refactor", "release": "patch"}
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "docs/CHANGELOG.md"
+      }
+    ],
+    "@semantic-release/npm",
+    ["semantic-release-react-native", {
+      "versionStrategy": {
+        "android": { "buildNumber": "increment" },
+        "ios": {"buildNumber": "increment"}
+      }
+    }],
+    ["@semantic-release/git", {
+      "assets": [
+        "package.json",
+        "docs/CHANGELOG.md",
+        "ios/reactnativetemplate/Info.plist",
+        "ios/reactnativetemplateTests/Info.plist",
+        "ios/reactnativetemplate.xcodeproj/*.pbxproj",
+        "android/app/build.gradle"
+      ],
+      "message": "chore(release): update build version ${nextRelease.version}"
+    }]
+  ]
+}

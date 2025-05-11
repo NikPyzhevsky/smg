@@ -1,0 +1,4 @@
+export const MAIN_ROUTE = {
+  FIRST_SCREEN: 'FIRST_SCREEN',
+  SECOND_SCREEN: 'SECOND_SCREEN',
+} as const;
